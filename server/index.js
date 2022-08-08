@@ -1,16 +1,25 @@
+require('dotenv').config()
 const express = require('express')
-const path = require('path')
- 
 const app = express()
- 
+const path = require("path");
+
+
+const { SERVER_PORT } = process.env || 4005
+const { seed, getPackages, createConsultation, deleteConsultation } = require('./controller.js')
+
 app.use(express.static(path.join(__dirname, "/../public")))
- 
-app.get('/', function(req,res) {
-   res.sendFile(path.resolve('public/index.html'))
-})
- 
-const port = process.env.PORT || 4005
- 
-app.listen(port, () => {
-   console.log(`Listening on port ${port}`)
-})
+app.use(express.json())
+
+//DEV
+app.post('/seed', seed)
+
+//PACKAGES
+app.get('/packages', getPackages)
+
+// 
+app.post('/consultations', createConsultation)
+app.get('/packages', getPackages)
+app.delete('/consultation/:id', deleteConsultation)
+
+
+app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

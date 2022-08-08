@@ -1,0 +1,84 @@
+*{
+  background-color: aquamarine;
+};
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+background {
+   display:none;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   min-width: 100%;
+   min-height: 100%;
+   width: auto;
+   height: auto;
+   z-index: -100;
+};
+
+navbar {
+   overflow: hidden;
+   background-color: black;
+   position: fixed;
+   top: 0;
+   width: 100%;
+ };
+ /* Nav. Bar A
+ 
+ navA {
+   background: black;
+   color: cadetblue;
+   float: left;
+   display: block;
+   color: whitesmoke;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   list-style-type: none;
+   font-size: 25px;
+ };
+ 
+ navA:hover {
+   background: yellowgreen;
+   color: gray;
+ };
+ 
+ /* Nav. Bar B
+ navB {
+   background: black;
+   color: cadetblue;
+   float: right;
+   display: block;
+   color: whitesmoke;
+   text-align: left;
+   padding: 14px 16px;
+   text-decoration: none;
+   list-style-type: none;
+   font-size: 25px;
+ };
+ 
+ navB :hover {
+   background: yellowgreen;
+   color: gray;
+ };
+
+ imgOne {
+   width: 80%;
+   height: 100%;
+  }
+
+  card {
+   box-shadow: 10px 10px 5px 0px rgba(238, 238, 238, 1);
+   margin: 15px;
+   text-align: center;
+   padding-bottom: 10px;
+  };
+/*
+  
