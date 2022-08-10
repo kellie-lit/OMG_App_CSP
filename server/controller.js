@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { CONNECTION_STRING } = process.env;
 
+
 const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -12,65 +13,59 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
   },
 });
 
+
 module.exports = {
-  seed: (_req, res) => {
-    sequelize.query(`
-
-            create table packages (
-                package_id serial primary key, package_name varchar, 
-                package_details varchar
-            );
-
-            create table consultations (
-                consult_id serial primary key,
-                consult_name varchar,
-                c_phone int,
-                c_email varchar, c_date date,
-                c_time timestamp,
-                package_select int references packages(package_id)
-
-            );
-            
-            insert into packages (package_name)
-            values ('O.M.G. TO MOVEMENT'),
-            ('O.M.G. TO FITNESS'),
-            ('O.M.G. TO LIFE');
-        `).then(() => {
-      console.log('DB seeded!')
-      res.sendStatus(200)
-    }).catch(err => console.log('error seeding DB', err))
-  },
-
-
-  getPackages: (_req, res) => {
-    sequelize
-      .query(
-        `
-        SELECT * FROM packages
-      `
-      )
-      .then((dbRes) => res.status(200).send(dbRes[0]))
-      .catch((err) => console.log(err));
-  },
-    createConsultation: (req, res) => {
-      const { c_name, c_phone, c_email, c_date, c_time } = req.body;
+  seed: (req, res) => {
       sequelize
-        .query(
-          `
-        INSERT into consultation(c_name, c_phone,c_email, c_date, c_time)
-        values('${c_name}',${c_phone},${c_email}, ${c_date}, ${c_time});
+          .query(
+              `
+      drop table if exists cc_appointments;
+      drop table if exists cc_clients;
+      drop table if exists cc_users;
+
+      create table cc_users (
+          user_id serial primary key, 
+          first_name varchar(100), 
+          last_name varchar(100), 
+          email varchar(50), 
+          phone_number varchar(15)
+      );
+
+      create table cc_clients (
+          client_id serial primary key, 
+          user_id integer references cc_users(user_id)
+      );
+
+      create table cc_appointments (
+          appt_id serial primary key, 
+          client_id integer references cc_clients(client_id), 
+          date timestamp with time zone, 
+          service_type varchar(100), 
+          notes text,
+          approved boolean, 
+          completed boolean
+      );
+
+      insert into cc_users (first_name, last_name, email, phone_number)
+      values ();
+          
+      insert into cc_appointments (client_id, date, service_type, notes, approved, completed)
+      values ();
       `
-        )
-        .then((dbRes) => res.status(200).send(dbRes[0]))
-        .catch((err) => console.log(err));
-    },
-      deleteConsultation: (req, res) => {
-        const { id } = req.params;
-        sequelize.query(`
-        DELETE FROM consultation
-        WHERE consult_id = ${+id};
-    `)
-          .then(dbRes => res.status(200).send(dbRes[0]))
-          .catch(err => console.log(err))
-      }
-    }
+          )
+          .then(() => {
+              console.log("DB seeded!");
+              res.sendStatus(200);
+          })
+          .catch((err) => console.log("error seeding DB", err));
+  },
+    deleteAppointment: (req, res) => {
+  const { id } = req.params;
+  sequelize.query(`
+  DELETE FROM cc_appointments
+  WHERE client_id = ${+id};
+`)
+    .then(dbRes => res.status(200).send(dbRes[0]))
+    .catch(err => console.log(err))
+}
+}

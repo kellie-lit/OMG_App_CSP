@@ -1,25 +1,27 @@
-require('dotenv').config()
-const express = require('express')
-const app = express()
+require('dotenv').config();
+const express = require('express');
+const app = express();
 const path = require("path");
 
 
-const { SERVER_PORT } = process.env || 4005
-const { seed, getPackages, createConsultation, deleteConsultation } = require('./controller.js')
+const { SERVER_PORT } = process.env || 5500
+const {seed, getUserInfo, updateUserInfo, getUserAppt, requestAppointment} = require('./controller.js')
+
 
 app.use(express.static(path.join(__dirname, "/../public")))
 app.use(express.json())
 
-//DEV
+
+//TABLE
 app.post('/seed', seed)
 
-//PACKAGES
-app.get('/packages', getPackages)
+// USER
+app.get('/user', getUserInfo)
+app.put('/user', updateUserInfo)
 
-// 
-app.post('/consultations', createConsultation)
-app.get('/packages', getPackages)
-app.delete('/consultation/:id', deleteConsultation)
-
+// APPOINTMENTS
+app.get('/appt', getUserAppt)
+app.post('/appt', requestAppointment)
+app.delete('/appt/:id', deleteAppointment)
 
 app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))

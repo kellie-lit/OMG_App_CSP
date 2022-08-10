@@ -1,84 +1,45 @@
-*{
-  background-color: aquamarine;
-};
+.header{
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7),url(/content/images/logo.png));
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
 
-body {
-  background-color: lightblue;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
-  color: navy;
-  margin-left: 20px;
+  color: white;
 }
 
-background {
-   display:none;
-   position: fixed;
-   top: 50%;
-   left: 50%;
-   min-width: 100%;
-   min-height: 100%;
-   width: auto;
-   height: auto;
-   z-index: -100;
-};
+h2, h3, h4, p, a {
+  margin: 15px;
+}
 
-navbar {
-   overflow: hidden;
-   background-color: black;
-   position: fixed;
-   top: 0;
-   width: 100%;
- };
- /* Nav. Bar A
- 
- navA {
-   background: black;
-   color: cadetblue;
-   float: left;
-   display: block;
-   color: whitesmoke;
-   text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
-   list-style-type: none;
-   font-size: 25px;
- };
- 
- navA:hover {
-   background: yellowgreen;
-   color: gray;
- };
- 
- /* Nav. Bar B
- navB {
-   background: black;
-   color: cadetblue;
-   float: right;
-   display: block;
-   color: whitesmoke;
-   text-align: left;
-   padding: 14px 16px;
-   text-decoration: none;
-   list-style-type: none;
-   font-size: 25px;
- };
- 
- navB :hover {
-   background: yellowgreen;
-   color: gray;
- };
+a {
+  text-decoration: none;
+  color: white;
+}
 
- imgOne {
-   width: 80%;
-   height: 100%;
-  }
+a:hover {
+  color: coral;
+}
 
-  card {
-   box-shadow: 10px 10px 5px 0px rgba(238, 238, 238, 1);
-   margin: 15px;
-   text-align: center;
-   padding-bottom: 10px;
-  };
-/*
-  
+main {
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: darkolivegreen;
+}
+
