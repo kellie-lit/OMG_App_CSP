@@ -5,13 +5,13 @@ const cors = require('cors')
 const path = require("path");
 
 
-const { SERVER_PORT } = process.env || 4030
+const { PORT } = process.env || 4030
 const {seed, requestAppointment, deleteAppointment} = require('./controller.js')
 
 
 app.use(express.static(path.join(__dirname, "/../public")))
 app.use(express.json())
-
+app.use(cors())
 
 //TABLE
 app.post('/seed', seed)
@@ -21,4 +21,4 @@ app.post('/seed', seed)
 app.post('/appt', requestAppointment)
 app.delete('/appt/:id', deleteAppointment)
 
-app.listen(SERVER_PORT, () => console.log(`up on ${SERVER_PORT}`))
+app.listen(PORT, () => console.log(`up on ${PORT}`))
