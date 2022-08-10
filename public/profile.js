@@ -3,6 +3,8 @@ const firstNameInput = document.querySelector('#first-name')
 const lastNameInput = document.querySelector('#last-name')
 const phoneInput = document.querySelector('#phone-number')
 const emailInput = document.querySelector('#email')
+const dateInput = document.querySelector('#date')
+const package = document.querySelector('#package')
 
 const inputs = [firstNameInput, lastNameInput, phoneInput, emailInput]
 
@@ -14,10 +16,14 @@ inputs.forEach(input => {
 })
 
 function getProfileInfo() {
-    axios.get('/user')
+    let body = {
+        date: dateInput.value,
+        service: package.value,
+    }
+    axios.post('/appt', body)
         .then(res => {
-            const user = res.data[0]
-
+            const user = res.data
+            console.log(res.data)
             const {
                 first_name: firstName,
                 last_name: lastName,

@@ -14,9 +14,9 @@ const sequelize = new Sequelize(DATABASE_URL, {
 
 module.exports = {
   seed: (req, res) => {
-      sequelize
-          .query(
-              `
+    sequelize
+      .query(
+        `
       drop table if exists cc_appointments;
       drop table if exists cc_clients;
       drop table if exists cc_users;
@@ -37,45 +37,45 @@ module.exports = {
       create table cc_appointments (
           appt_id serial primary key, 
           client_id integer references cc_clients(client_id), 
-          date timestamp with time zone, 
+          date timestamp, 
           service_type varchar(100), 
           notes text,
           approved boolean, 
           completed boolean
       );
 `
-          )
-          .then(() => {
-              console.log("DB seeded!");
-              res.sendStatus(200);
-          })
-          .catch((err) => console.log("error seeding DB", err));
+      )
+      .then(() => {
+        console.log("DB seeded!");
+        res.sendStatus(200);
+      })
+      .catch((err) => console.log("error seeding DB", err));
   },
-    deleteAppointment: (req, res) => {
-  const { id } = req.params;
-  sequelize.query(`
+  deleteAppointment: (req, res) => {
+    const { id } = req.params;
+    sequelize.query(`
   DELETE FROM cc_appointments
   WHERE client_id = ${+id};
 `)
-    .then(dbRes => res.status(200).send(dbRes[0]))
-    .catch(err => console.log(err))
-},
+      .then(dbRes => res.status(200).send(dbRes[0]))
+      .catch(err => console.log(err))
+  },
 
-requestAppointment:(req,res) => {
-
-
+  requestAppointment: (req, res) => {
 
 
-  const { date, service } = req.body
 
 
-  sequelize.query(`
+    const { date, service } = req.body
 
 
-    insert into cc_appointments(client_id,date,service_type,notes,approved,completed)
+    sequelize.query(`
 
 
-    values(${clientId},'${date}','${service}','picky customer',false,false)
+    insert into cc_appointments(date,service_type,notes,approved,completed)
+
+
+    values('${date}','${service}','picky customer',false,false)
 
 
     returning *
@@ -84,11 +84,11 @@ requestAppointment:(req,res) => {
   `)
 
 
-  .then(dbRes => res.status(200).send(dbRes[0]))
+      .then(dbRes => res.status(200).send(dbRes[0]))
 
 
-  .catch(err => console.log(err))
+      .catch(err => console.log(err))
 
 
-}
+  }
 }
