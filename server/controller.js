@@ -62,33 +62,19 @@ module.exports = {
   },
 
   requestAppointment: (req, res) => {
-
-
-
-
     const { date, service } = req.body
-
-
     sequelize.query(`
-
 
     insert into cc_appointments(date,service_type,notes,approved,completed)
 
 
     values('${date}','${service}','picky customer',false,false)
 
-
     returning *
-
-
   `)
 
-
       .then(dbRes => res.status(200).send(dbRes[0]))
-
-
       .catch(err => console.log(err))
-
 
   }
 }

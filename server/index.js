@@ -6,7 +6,7 @@ const path = require("path");
 
 
 const { PORT } = process.env || 4030
-const {seed, requestAppointment, deleteAppointment} = require('./controller.js')
+const { seed, requestAppointment, deleteAppointment } = require('./controller.js')
 
 
 app.use(express.static(path.join(__dirname, "/../public")))
