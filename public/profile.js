@@ -14,7 +14,7 @@ inputs.forEach(input => {
 })
 
 function getProfileInfo() {
-    axios.get('http://localhost:4030/user')
+    axios.get('/user')
         .then(res => {
             const user = res.data[0]
 
@@ -39,7 +39,7 @@ function updateInfo() {
         email: emailInput.value
     }
 
-    axios.put('http://localhost:4030/user', body)
+    axios.put('/user', body)
         .then(res => console.log(1, res))
         .catch(err => console.log(err))
 }

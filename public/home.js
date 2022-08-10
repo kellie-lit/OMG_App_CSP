@@ -68,7 +68,7 @@ function createDisplayDate(date) {
 }
 
 function getClientAppointments() {
-    axios.get('http://localhost:5500/appt')
+    axios.get('/appt')
         .then(res => {
             res.data.forEach(appt => {
                 const dateDisplayText = createDisplayDate(appt.date)
@@ -93,7 +93,7 @@ form.addEventListener('submit', (e) => {
     let dateTime = `${datePicker.value} ${timePicker.value}:00`
     let dateTimeObj = new Date(dateTime)
 
-    axios.post('http://localhost:5500/appt', {date: dateTimeObj, service: servicePicker.value})
+    axios.post('/appt', {date: dateTimeObj, service: servicePicker.value})
         .then(() => {
             resetFormValues()
             location.reload()
