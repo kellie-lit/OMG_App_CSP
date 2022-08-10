@@ -1,11 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const path = require("path");
 
 
-const { SERVER_PORT } = process.env || 5500
-const {seed, getUserInfo, updateUserInfo, getUserAppt, requestAppointment} = require('./controller.js')
+const { SERVER_PORT } = process.env || 4030
+const {seed, requestAppointment, deleteAppointment} = require('./controller.js')
 
 
 app.use(express.static(path.join(__dirname, "/../public")))
@@ -15,12 +16,8 @@ app.use(express.json())
 //TABLE
 app.post('/seed', seed)
 
-// USER
-app.get('/user', getUserInfo)
-app.put('/user', updateUserInfo)
 
 // APPOINTMENTS
-app.get('/appt', getUserAppt)
 app.post('/appt', requestAppointment)
 app.delete('/appt/:id', deleteAppointment)
 

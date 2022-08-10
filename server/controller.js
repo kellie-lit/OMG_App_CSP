@@ -1,7 +1,6 @@
 require("dotenv").config();
 const { CONNECTION_STRING } = process.env;
-
-
+2
 const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -12,7 +11,6 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
     },
   },
 });
-
 
 module.exports = {
   seed: (req, res) => {
@@ -45,13 +43,7 @@ module.exports = {
           approved boolean, 
           completed boolean
       );
-
-      insert into cc_users (first_name, last_name, email, phone_number)
-      values ();
-          
-      insert into cc_appointments (client_id, date, service_type, notes, approved, completed)
-      values ();
-      `
+`
           )
           .then(() => {
               console.log("DB seeded!");
@@ -67,5 +59,36 @@ module.exports = {
 `)
     .then(dbRes => res.status(200).send(dbRes[0]))
     .catch(err => console.log(err))
+},
+
+requestAppointment:(req,res) => {
+
+
+
+
+  const { date, service } = req.body
+
+
+  sequelize.query(`
+
+
+    insert into cc_appointments(client_id,date,service_type,notes,approved,completed)
+
+
+    values(${clientId},'${date}','${service}','picky customer',false,false)
+
+
+    returning *
+
+
+  `)
+
+
+  .then(dbRes => res.status(200).send(dbRes[0]))
+
+
+  .catch(err => console.log(err))
+
+
 }
 }
