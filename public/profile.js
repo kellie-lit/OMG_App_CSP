@@ -1,12 +1,11 @@
 const profileForm = document.querySelector('#profile-form')
 const firstNameInput = document.querySelector('#first-name')
-const lastNameInput = document.querySelector('#last-name')
 const phoneInput = document.querySelector('#phone-number')
 const emailInput = document.querySelector('#email')
 const dateInput = document.querySelector('#date')
 const package = document.querySelector('#package')
 
-const inputs = [firstNameInput, lastNameInput, phoneInput, emailInput]
+const inputs = [firstNameInput, phoneInput, emailInput]
 
 inputs.forEach(input => {
     input.addEventListener('change', (e) => {
@@ -26,13 +25,11 @@ function getProfileInfo() {
             console.log(res.data)
             const {
                 first_name: firstName,
-                last_name: lastName,
                 phone_number: phoneNumber,
                 email
             } = user
 
             firstNameInput.value = firstName
-            lastNameInput.value = lastName
             phoneInput.value = phoneNumber
             emailInput.value = email
         })
@@ -40,7 +37,6 @@ function getProfileInfo() {
 function updateInfo() {
     let body = {
         firstName: firstNameInput.value,
-        lastName: lastNameInput.value,
         phoneNumber: phoneInput.value,
         email: emailInput.value
     }

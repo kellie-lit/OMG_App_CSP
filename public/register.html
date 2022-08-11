@@ -113,107 +113,35 @@ Designed by David Jonathan Ross)-->
 <!--END OF UL, NAV BAR, AND DIV-->
 
 
-    <!--Adding in a button and flip feature-->
-    <section class="section-plans" id="section-plans"> 
-      <div class="u-center-text u-margin-bottom-big">
-        <h2 class="heading-secondary">O.M.G. Plans</h2>
-      </div>
+<!--Contact form-->
+<div class="u-center-text u-margin-bottom-big">
+    <h3>O.M.G! SIGN ME UP!</h3>
+    <form id="profile-form">
+        <label for="first-name">Your Name:</label>
+        <input type="text" placeholder="Name here" id="first-name"/>
 
-      <div class="row">
-        <div class="col-1-of-3">
-          <div class="card">
-            <div class="card__side card__side--front-1">
-              <div class="card__title card__title--1">
-                <i class="fa-solid fa-person"></i>
-                <h4 class="card__heading">ONE</h4>
-              </div>
+        <label for="phone-number">Phone Number:</label>
+        <input type="text" placeholder="ex.555-777-9311" id="phone-number"/>
 
-              <div class="card__details">
-                <ul>
-                  <li>1 Hour of Class</li>
-                  <li>One 60 minute Session</li>
-                  <li>Two 30 minute Sessions</li>
+        <label for="email">Email:</label>
+        <input type="text" placeholder="Example@mail.com"id="email"/>
 
-                </ul>
-              </div>
+        <h4>Reqeust an Appointment</h4>
+          <form id="appt-form">
+              <input type="date" id="date"/>
+              <input id="time" type="time">
+                            <select id="package">
+                    <option>-select one-</option>
+                    <option>Free Consultation</option>
+                  <option>ONE ($100)</option>
+                  <option>MORE ($300)</option>
+                  <option>GAIN ($500)</option>
+              </select>
+              <button>submit</button>
             </div>
-            <div class="card__side card__side--back card__side--back-1">
-              <div class="card__cta">
-                <div class="card__price-box">
-                  <p class="card__price-only">Only</p>
-                  <p class="card__price-value">$100/mo*</p>
-                </div>
-                <a href="register.html" class="btn btn--white">Select</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-1-of-3">
-          <div class="card">
-            <div class="card__side card__side--front-2">
-              <div class="card__title card__title--2">
-                <i class="fa-solid fa-person-walking"></i>
-                <h4 class="card__heading">MORE</h4>
-              </div>
-
-              <div class="card__details">
-                <ul>
-                    <li>3 Hour of Class</li>
-                    <li>Four 45 minute Sessions</li>
-                    <li>Six 30 minute Sessions</li>
-                    <li>Two Socials</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card__side card__side--back card__side--back-2">
-              <div class="card__cta">
-                <div class="card__price-box">
-                  <p class="card__price-only">Only</p>
-                  <p class="card__price-value">$300/mo*</p>
-                </div>
-                <a href="register.html" class="btn btn--white">Select</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-1-of-3">
-          <div class="card">
-            <div class="card__side card__side--front-3">
-              <div class="card__title card__title--3">
-                <i class="fa-solid fa-person-running"></i>
-                <h4 class="card__heading">GAIN</h4>
-              </div>
-
-              <div class="card__details">
-                <ul>
-                    <li>5 Hour of Classes</li>
-                    <li>Eight 45 minute Sessions</li>
-                    <li>Twelve 30 minute Session</li>
-                    <li>Three Socials</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card__side card__side--back card__side--back-3">
-              <div class="card__cta">
-                <div class="card__price-box">
-                  <p class="card__price-only">Only</p>
-                  <p class="card__price-value">$500/mo</p>
-    
-                </div>
-                <a href="register.html" class="btn btn--white">Select</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </body>
-</html>
-
+    </form>
+</section>
     <script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js"></script>
     <script src="profile.js"></script>
-
 </body>
 </html>
