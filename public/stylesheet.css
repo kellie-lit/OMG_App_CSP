@@ -668,14 +668,11 @@ header h3 {
     margin: 5rem;
     padding: 1rem;
   }
-  h4{
-    background-image: repeating-radial-gradient(farthest-corner at 20px 40px,#553c9a, #ee4b2b, #553c9a);
+ h4{
     margin: 5rem;
     padding: 1rem;
   }
-  header .header-3{
-    background-image: repeating-radial-gradient(circle farthest-side at 5px 10px,#553c9a 10%, #ee4b2b 30%, #553c9a);
-  }
+  
   .homeKellie, .title {
     font-size: 75px;
     width: 100%;
@@ -695,6 +692,11 @@ header h3 {
   padding: 1rem;
 }
 .aboutKellie{
+  margin: 5rem;
+  padding: 1rem;
+}
+
+h1{
   margin: 5rem;
   padding: 1rem;
 }
