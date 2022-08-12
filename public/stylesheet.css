@@ -70,6 +70,9 @@ main {
   background-color: var(--bg-primary);
   transition: width 200ms ease;
   transition: width 600ms ease;
+  left: 0;
+  z-index: 9; /*overrode issue and put navbar over other features
+*/
 }
 
 .navbar-nav {
@@ -225,11 +228,11 @@ section{
 }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 0 !important;
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem !important;
+  margin-bottom: 0 !important;
 }
 
 .u-margin-top-big {
