@@ -594,18 +594,21 @@ input[type=submit] {
   font-family: "Asap", sans-serif;
   background-color: #fdfdfe;
 }
-header {
+h3 {
+  font-size: 75px;
   width: 100%;
   height: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
 }
 header h3 {
   position: absolute;
   width: 90%;
-  font-size: 60px;
+  font-size: 75px;
   font-weight: 600;
   color: transparent;
   background-image: linear-gradient(to right ,#553c9a, #ee4b2b, #00c2cb, #ff7f50, #553c9a);
@@ -613,8 +616,10 @@ header h3 {
   background-clip: text;    
   background-size: 200%;
   background-position: -200%;
-  animation: animated-gradient 2s infinite alternate-reverse;      
-}
+  animation: animated-gradient 2s infinite alternate-reverse;   
+
+}   
+
 @keyframes animated-gradient{
   to{
     background-position: 200%;
@@ -622,55 +627,28 @@ header h3 {
 }
 
 
-/*HOME PAGE STYLING
- 
-#dancevid {
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.viewport-header {
-  position: relative;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-h1 {
-  font-family: 'Syncopate', sans-serif;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 3vw;
-  line-height: 1.2;
-  font-size: 3vw;
-  text-align: center;
-  span {
-    display: block;
-    font-size: 10vw;
-    letter-spacing: -1.3vw;
-  }
-
-main {
-  background: rgba(black, 0.66);
-  color: white;
-  position: relative;
-  padding: 1rem;}
-  h3 {
-    max-width: 600px;
-    margin: 1rem auto;
-  }
-*/
- 
- /*IMAGE STYLING*/
- #imgOne {
+/*IMAGE STYLING*/
+#imgOne {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+
+
+/*HOME PAGE STYLING*/
+
+/* Container should be full height and full width */
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container > .bg-video {
+  width: 100%;
+  height: 100%;
+  margin: 5rem;
+  padding: 1rem;
 }
