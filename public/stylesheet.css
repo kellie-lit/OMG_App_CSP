@@ -638,17 +638,63 @@ header h3 {
 
 
 /*HOME PAGE STYLING*/
-
-/* Container should be full height and full width */
-.container {
-  position: fixed;
-  width: 100vw;
+.title{
   height: 100vh;
-}
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	background-color: rgb(203, 66, 219);
+	font-family: "Montserrat";
+  }
+  .title {
+    position: relative;
+    left: 10%;
+    width: 80%;
+    font-size: 60px;
+    font-weight: 600;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;   
+  }
+  .tagline{
+    background-image: repeating-radial-gradient(farthest-side at 5px 5px,#553c9a, #ee4b2b, #553c9a);
+    margin: 5rem;
+    padding: 1rem;
+  }
+  h4{
+    background-image: repeating-radial-gradient(farthest-corner at 20px 40px,#553c9a, #ee4b2b, #553c9a);
+    margin: 5rem;
+    padding: 1rem;
+  }
+  header .header-3{
+    background-image: repeating-radial-gradient(circle farthest-side at 5px 10px,#553c9a 10%, #ee4b2b 30%, #553c9a);
+  }
+  .homeKellie, .title {
+    font-size: 75px;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+      0px 0px 20px #b393d3;
+  }
 
 .container > .bg-video {
   width: 100%;
   height: 100%;
+  margin: 5rem;
+  padding: 1rem;
+}
+.aboutKellie{
   margin: 5rem;
   padding: 1rem;
 }
