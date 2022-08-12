@@ -3,9 +3,10 @@ const firstNameInput = document.querySelector('#first-name')
 const phoneInput = document.querySelector('#phone-number')
 const emailInput = document.querySelector('#email')
 const dateInput = document.querySelector('#date')
+const timeInput = document.querySelector('#time')
 const package = document.querySelector('#package')
 
-const inputs = [firstNameInput, phoneInput, emailInput]
+const inputs = [firstNameInput, phoneInput, emailInput, timeInput]
 
 inputs.forEach(input => {
     input.addEventListener('change', (e) => {
@@ -14,24 +15,26 @@ inputs.forEach(input => {
     })
 })
 
-function getProfileInfo() {
+function getProfileForm() {
     let body = {
         date: dateInput.value,
         service: package.value,
     }
-    axios.post('/appt', body)
+    axios.post('appt', body)
         .then(res => {
             const user = res.data
             console.log(res.data)
             const {
                 first_name: firstName,
                 phone_number: phoneNumber,
-                email
+                email: email
             } = user
 
-            firstNameInput.value = firstName
-            phoneInput.value = phoneNumber
-            emailInput.value = email
+            firstNameInput.value = ""
+            phoneInput.value = ""
+            emailInput.value = ""
+            timeInput.value = ""
+            alert(`O.M.G. WELCOME TO THE FAMILY!!! Our people will be intouch =^)`)
         })
 }
 function updateInfo() {
@@ -48,5 +51,5 @@ function updateInfo() {
 
 profileForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    getProfileInfo()
+    getProfileForm()
 })

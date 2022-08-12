@@ -66,10 +66,7 @@ module.exports = {
     sequelize.query(`
 
     insert into cc_appointments(date,service_type,notes,approved,completed)
-
-
     values('${date}','${service}','picky customer',false,false)
-
     returning *
   `)
 
